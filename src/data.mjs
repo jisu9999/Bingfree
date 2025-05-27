@@ -218,6 +218,7 @@ export const fullReservationList = reactive([
       during: "3개월",
     },
     worker: {
+      bingnb: "bing01",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -277,6 +278,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing02",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -306,7 +308,7 @@ export const fullReservationList = reactive([
       memo: null,
     },
     payment: {
-      service: 99000,
+      service: 150000,
       extra: 4900,
       coupon: 0,
       membershipDiscount: 0,
@@ -336,6 +338,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing03",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -396,6 +399,7 @@ export const fullReservationList = reactive([
       during: "1개월",
     },
     worker: {
+      bingnb: "bing04",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -455,6 +459,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing05",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -484,8 +489,8 @@ export const fullReservationList = reactive([
       memo: null,
     },
     payment: {
-      service: 99000,
-      extra: 4900,
+      service: 170000,
+      extra: 0,
       coupon: 0,
       membershipDiscount: 0,
       extraDiscount: 0,
@@ -514,6 +519,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing06",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -574,6 +580,7 @@ export const fullReservationList = reactive([
       during: "3개월",
     },
     worker: {
+      bingnb: "bing07",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -634,6 +641,7 @@ export const fullReservationList = reactive([
       during: "6개월",
     },
     worker: {
+      bingnb: "bing08",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -693,6 +701,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing09",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -753,6 +762,7 @@ export const fullReservationList = reactive([
       during: "3개월",
     },
     worker: {
+      bingnb: "bing10",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -813,6 +823,7 @@ export const fullReservationList = reactive([
       during: "1개월",
     },
     worker: {
+      bingnb: "bing11",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -842,8 +853,8 @@ export const fullReservationList = reactive([
       memo: null,
     },
     payment: {
-      service: 99000,
-      extra: 4900,
+      service: 150000,
+      extra: 0,
       coupon: 0,
       membershipDiscount: 0,
       extraDiscount: 0,
@@ -872,6 +883,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing12",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -932,6 +944,7 @@ export const fullReservationList = reactive([
       during: "3개월",
     },
     worker: {
+      bingnb: "bing13",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -991,6 +1004,7 @@ export const fullReservationList = reactive([
       during: null,
     },
     worker: {
+      bingnb: "bing14",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -1051,6 +1065,7 @@ export const fullReservationList = reactive([
       during: "2개월",
     },
     worker: {
+      bingnb: "bing15",
       star: "4.5점(9개 리뷰)",
       name: "김기사",
       mobile: "010-4321-4321",
@@ -1074,7 +1089,8 @@ export const fullReservationList = reactive([
       type: "일회성 청소",
       machine: "[스탠다드] 50kg 미만 1대",
       address: "대구광역시 중구 동성로 3가 동성로 1길 15 4층",
-      date: "2025-08-22, 오후 2시",
+      date: "2025-08-22",
+      time: "오후 11시 이후",
       plus: null,
       memo: null,
     },
@@ -1086,6 +1102,320 @@ export const fullReservationList = reactive([
       extraDiscount: 0,
     },
     primemember: true,
+  },
+  {
+    id: 16,
+    number: "BING-2025-016",
+    status: "done", // (예시: 랜덤)
+    date: "2025-02-15, 오후 3시 이후",
+    memo: "레포트 받을래요~",
+    price: 0,
+    reservdate: "2025-02-20",
+    customer: {
+      name: "박소연",
+      mobile: "010-7182-3345",
+      email: "soyeon.park@bingfree.co.kr",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 5층",
+      shop: "business",
+    },
+    membership: {
+      name: "스탠다드",
+      package: "6회권",
+      date: "2025-01-04 ~",
+      count: "5회 / 6회",
+      during: "2개월",
+    },
+    worker: {
+      bingnb: "bing16",
+      number: "bing01",
+      star: "4.5점(9개 리뷰)",
+      name: "김기사",
+      mobile: "010-4321-4321",
+      email: "mrkim@bingfree.co.kr",
+      gender: "male",
+      health: true,
+      location: {
+        서울특별시: ["강남구", "마포구"],
+      },
+      bank: "국민은행",
+      account: "620002-04-218816",
+      during: "1개월",
+    },
+    inquiry: {
+      type: null,
+      title: null,
+      memo: null,
+      file: null,
+    },
+    reservinfo: {
+      type: "일회성 청소",
+      machine: "[스탠다드] 50kg 미만 1대",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 4층",
+      date: "2025-08-22",
+      time: "오후 1시 이후",
+      plus: null,
+      memo: null,
+    },
+    payment: {
+      service: 99000,
+      extra: 0,
+      coupon: 0,
+      membershipDiscount: 0,
+      extraDiscount: 0,
+    },
+    primemember: false, // (예시: 랜덤)
+  },
+
+  // id: 17
+  {
+    id: 17,
+    number: "BING-2025-017",
+    status: "waiting", // (예시: 랜덤)
+    date: "2025-02-15, 오후 3시 이후",
+    memo: "레포트 받을래요~",
+    price: 0,
+    reservdate: "2025-02-20",
+    customer: {
+      name: "이정훈",
+      mobile: "010-5923-1108",
+      email: "junghoon.lee@bingfree.co.kr",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 5층",
+      shop: "business",
+    },
+    membership: {
+      name: "스탠다드",
+      package: "6회권",
+      date: "2025-01-04 ~",
+      count: "5회 / 6회",
+      during: "2개월",
+    },
+    worker: {
+      bingnb: "bing17",
+      star: "4.5점(9개 리뷰)",
+      name: "김기사",
+      mobile: "010-4321-4321",
+      email: "mrkim@bingfree.co.kr",
+      gender: "male",
+      health: true,
+      location: {
+        서울특별시: ["강남구", "마포구"],
+      },
+      bank: "국민은행",
+      account: "620002-04-218816",
+      during: "1개월",
+    },
+    inquiry: {
+      type: null,
+      title: null,
+      memo: null,
+      file: null,
+    },
+    reservinfo: {
+      type: "일회성 청소",
+      machine: "[스탠다드] 50kg 미만 1대",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 4층",
+      date: "2025-08-22",
+      time: "오후 11시 이후",
+      plus: null,
+      memo: null,
+    },
+    payment: {
+      service: 99000,
+      extra: 0,
+      coupon: 0,
+      membershipDiscount: 0,
+      extraDiscount: 0,
+    },
+    primemember: true, // (예시: 랜덤)
+  },
+
+  // id: 18
+  {
+    id: 18,
+    number: "BING-2025-018",
+    status: "confirmed", // (예시: 랜덤)
+    date: "2025-02-15, 오후 3시 이후",
+    memo: "레포트 받을래요~",
+    price: 0,
+    reservdate: "2025-02-20",
+    customer: {
+      name: "최민지",
+      mobile: "010-8856-4401",
+      email: "minji.choi@bingfree.co.kr",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 5층",
+      shop: "business",
+    },
+    membership: {
+      name: "스탠다드",
+      package: "6회권",
+      date: "2025-01-04 ~",
+      count: "5회 / 6회",
+      during: "2개월",
+    },
+    worker: {
+      bingnb: "bing18",
+      star: "4.5점(9개 리뷰)",
+      name: "김기사",
+      mobile: "010-4321-4321",
+      email: "mrkim@bingfree.co.kr",
+      gender: "male",
+      health: true,
+      location: {
+        서울특별시: ["강남구", "마포구"],
+      },
+      bank: "국민은행",
+      account: "620002-04-218816",
+      during: "1개월",
+    },
+    inquiry: {
+      type: null,
+      title: null,
+      memo: null,
+      file: null,
+    },
+    reservinfo: {
+      type: "일회성 청소",
+      machine: "[스탠다드] 50kg 미만 1대",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 4층",
+      date: "2025-08-22",
+      time: "오후 11시 이후",
+      plus: null,
+      memo: null,
+    },
+    payment: {
+      service: 99000,
+      extra: 0,
+      coupon: 0,
+      membershipDiscount: 0,
+      extraDiscount: 0,
+    },
+    primemember: false, // (예시: 랜덤)
+  },
+
+  // id: 19
+  {
+    id: 19,
+    number: "BING-2025-019",
+    status: "assigned", // (예시: 랜덤)
+    date: "2025-02-15, 오후 3시 이후",
+    memo: "레포트 받을래요~",
+    price: 0,
+    reservdate: "2025-02-20",
+    customer: {
+      name: "한지훈",
+      mobile: "010-2334-9902",
+      email: "jihoon.han@bingfree.co.kr",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 5층",
+      shop: "business",
+    },
+    membership: {
+      name: "스탠다드",
+      package: "6회권",
+      date: "2025-01-04 ~",
+      count: "5회 / 6회",
+      during: "2개월",
+    },
+    worker: {
+      bingnb: "bing19",
+      star: "4.5점(9개 리뷰)",
+      name: "김기사",
+      mobile: "010-4321-4321",
+      email: "mrkim@bingfree.co.kr",
+      gender: "male",
+      health: true,
+      location: {
+        서울특별시: ["강남구", "마포구"],
+      },
+      bank: "국민은행",
+      account: "620002-04-218816",
+      during: "1개월",
+    },
+    inquiry: {
+      type: null,
+      title: null,
+      memo: null,
+      file: null,
+    },
+    reservinfo: {
+      type: "일회성 청소",
+      machine: "[스탠다드] 50kg 미만 1대",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 4층",
+      date: "2025-08-22",
+      time: "오후 11시 이후",
+      plus: null,
+      memo: null,
+    },
+    payment: {
+      service: 99000,
+      extra: 0,
+      coupon: 0,
+      membershipDiscount: 0,
+      extraDiscount: 0,
+    },
+    primemember: true, // (예시: 랜덤)
+  },
+
+  // id: 20
+  {
+    id: 20,
+    number: "BING-2025-020",
+    status: "waiting", // (예시: 랜덤)
+    date: "2025-02-15, 오후 3시 이후",
+    memo: "레포트 받을래요~",
+    price: 0,
+    reservdate: "2025-02-20",
+    customer: {
+      name: "윤세영",
+      mobile: "010-6667-2223",
+      email: "seyoung.yoon@bingfree.co.kr",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 5층",
+      shop: "business",
+    },
+    membership: {
+      name: "스탠다드",
+      package: "6회권",
+      date: "2025-01-04 ~",
+      count: "5회 / 6회",
+      during: "2개월",
+    },
+    worker: {
+      bingnb: "bing20",
+      star: "4.5점(9개 리뷰)",
+      name: "김기사",
+      mobile: "010-4321-4321",
+      email: "mrkim@bingfree.co.kr",
+      gender: "male",
+      health: true,
+      location: {
+        서울특별시: ["강남구", "마포구"],
+      },
+      bank: "국민은행",
+      account: "620002-04-218816",
+      during: "1개월",
+    },
+    inquiry: {
+      type: null,
+      title: null,
+      memo: null,
+      file: null,
+    },
+    reservinfo: {
+      type: "일회성 청소",
+      machine: "[스탠다드] 50kg 미만 1대",
+      address: "대구광역시 중구 동성로 3가 동성로 1길 15 4층",
+      date: "2025-08-22",
+      time: "오후 11시 이후",
+      plus: null,
+      memo: null,
+    },
+    payment: {
+      service: 99000,
+      extra: 0,
+      coupon: 0,
+      membershipDiscount: 0,
+      extraDiscount: 0,
+    },
+    primemember: false, // (예시: 랜덤)
   },
 ]);
 
