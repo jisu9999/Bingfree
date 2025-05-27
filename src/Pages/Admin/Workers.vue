@@ -221,7 +221,49 @@ const statusCards = computed(() => [
   },
 ]);
 
-// 대시 보드 관련
+// 기사목록 검색바
+const workerSearchType = ref("all"); // 선택된 필터 타입
+const searchQuery = ref(""); // 입력된 검색어
+
+function getPlaceholder(type) {
+  switch (type) {
+    case "employeeId":
+      return "사원번호를 입력하세요";
+    case "phone":
+      return "전화번호를 입력하세요";
+    default:
+      return "검색어를 입력하세요";
+  }
+}
+
+function handleSearch() {
+  console.log("검색 조건:", workerSearchType.value);
+  console.log("검색어:", searchQuery.value);
+
+  // 여기에 검색 필터링 로직 추가 가능
+  // 예: 리스트.filter(item => item.phone.includes(searchQuery.value)) 등
+}
+
+// 퇴사일
+function addOneYear(item) {
+  if (!item || item.status !== "done") return "-";
+
+  const dateStr = item.reservinfo?.date;
+  if (!dateStr) return "날짜 없음";
+
+  const [year, month, day] = dateStr.split(".").map(Number);
+  if (!year || !month || !day) return "유효하지 않은 날짜";
+
+  const newDate = new Date(year + 1, month - 1, day);
+  const yyyy = newDate.getFullYear();
+  const mm = String(newDate.getMonth() + 1).padStart(2, "0");
+  const dd = String(newDate.getDate()).padStart(2, "0");
+
+  return `${yyyy}.${mm}.${dd}`;
+}
+
+
+
 </script>
 <template>
   <div class="workers-wrap">
@@ -258,19 +300,31 @@ const statusCards = computed(() => [
       <!-- 테이블 -->
       <div class="tablelist">
         <h2 class="today-reservation-h2">기사목록</h2>
-        <div class="workers-table-search-wrap">
-        
+        <div class="search-bar">
+          <select v-model="workerSearchType" class="search-select mr-4">
+            <option value="all">전체</option>
+            <option value="employeeId">사원번호</option>
+            <option value="phone">전화번호</option>
+          </select>
+          <input
+            v-model="searchQuery"
+            type="text"
+            class="search-input mr-4"
+            :placeholder="getPlaceholder(searchType)" />
+
+          <button @click="handleSearch" class="search-button">검색하기</button>
+          <button class="addWorker">+기사추가</button>
         </div>
         <table class="table">
           <!-- 여기서 본인이 쓸 제목으로 바꾸기! -->
           <thead>
             <tr>
-              <th>예약번호</th>
-              <th>고객명</th>
-              <th>고객 연락처</th>
-              <th>예약일자</th>
-              <th>청소일자</th>
-              <th>담당기사</th>
+              <th>사원번호</th>
+              <th>이름</th>
+              <th>전화번호</th>
+              <th>주소</th>
+              <th>입사일</th>
+              <th>퇴사일</th>
               <th>담당 기사 연락처</th>
               <th>상태</th>
               <th>액션</th>
@@ -279,52 +333,16 @@ const statusCards = computed(() => [
           <!-- 여기서 내용 바꾸기 -->
           <tbody>
             <tr v-for="item in paginatedList" :key="item.id">
-              <td>{{ item.number }}</td>
-              <td class="customername">
-                <template v-if="item.primemember">
-                  <!-- 파란 북마크 아이콘 -->
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect width="15" height="15" fill="url(#pattern0_273_889)" />
-                    <defs>
-                      <pattern id="pattern0_273_889" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_273_889" transform="scale(0.0185185)" />
-                      </pattern>
-                      <image
-                        id="image0_273_889"
-                        width="54"
-                        height="54"
-                        preserveAspectRatio="none"
-                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAACXBIWXMAAAsSAAALEgHS3X78AAAEXUlEQVRogd1aPUwUQRR+u6HCxKNZO/QSO8BISGig4OproNAsNgKNJgYSGmjhEis0EaPBaAPRAi5SYHOUHgU2GIMJ0pkc0rmFnImUu+bbn9u9vdmfmb29H76EAHO7c++b7817b96uZBgGJYGi6lkiyiaaJBzHWlG+4L2Jm5ii6n1ENEtEU0Q00RTTo1ElojIR7eEnDtHYxGxC60Q0kzqNcFRtO9bDCMYipqj6rD1ZpmXmRwMEp7SiXGZdKUfdrqj6FhFtdhgpsu35bC96A0KJ2aTa7XpR2FRUfdF/TSAxRdVXu4CUgxd+5Zh7TFH1HGRusXFJgT03rBXlCoUott41dFxkvHY3ELMlvdse2xJjUlH1YQpQjBllugiLDcTs8ihRNTE+ING31zJ9WpGpX2nLaqAialAsJzobSIDM3opk/j02QPQgJ0Xe83PTWgQsCOtzjHMuUAbu6CfGXcxmrhG9emKpBDI8uKlIdL3XWgQsSH7UJbd835oT41ELxEADsWHeGZ7OSDQ9wf3FTAzZy4rfS/fcOU8q3FNl/cT6eGdIQqp6ya5TM731c1b/8c8dWSumCSgxVTDo72U9gf4b7peea0S/NP4zY087iQGHpwbllg1zT5WOLALnvy1COwcGrX0UOwj7ibXq4FgHkFjYcAmA7Mh8PSFn/8Xdby1RbDon0fgA0Z2sRIO33HG4IAyFUlDHv5cQcR/nreDkhPyFNwbtlKNVrCuCFVXn1l0rBm/TL6dWLoqbh96VDFrbdQki3LPuHZnXTZVDUKhZ5dRYzQTyE09yfZSXzGTtuN3D5zr9OHM/h8LPdt1gE4aaYqJHlTDFRAHDc8uuKnBHuOXbUqO7BqDQ9qjIAqqRD0uySQ4AIV54l5s7OacJBBkoJQqvYk3fY14gkHhdaXzQMhzqBAGfi6hFrQr3rBB9eEq0XTZCjzcYR2HsJG4epF5S7X8Nzjv+xMzCkGDz3EtM+CwWhh1mO9MFqgxvSPeDdU6Lg9QVg+FREKneo9DW6j5NeImlEhXjuFIavREvsVR681G5KKqnEceVWUjdFVEvTgf0LBDx3i+FExdoC5gwa0X72dcfkQni1opI0NsHhnmIBPKjFuGwBI2a8facLmJWrVZMteogW7kxztAtWnVQJ0dF5DbRtgB1KjG44PyGkAvW4BBretUR5zDIApSaLOjCQcNGJbFiKHBZQOGK1lpYueSFczpuAingOHF1jwL3pGI0NDnRC0SRi9YachWi4FBWqmuDgzSuKx0R7R/FPh1H4UwrysdNiYrWCgdvdCRZHFPCrmki8C5IbY911Ok5IcynmletCH7pfwZ9FRTDw/VV5x+HWLc+c/Yi530F6aq44hwioXegI/uKHID7zWpFec9/i2x3gLsRB/YLKw2kqEsVQy2zqhXlrbCLuoUY1MEe2vLvpSD0tOIs5kHVNtCBtzmHcSeqXcQlEISeBDnsu9eQMINF3ulNCscVIXXNkCCDg97m7DgQ0X+1TJk9rcZcSQAAAABJRU5ErkJggg==" />
-                    </defs>
-                  </svg>
-
-                  {{ item.customer.name }}
-                </template>
-                <template v-else>
-                  <!-- 초록 나뭇잎 아이콘 -->
-                  <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.75 1.57143H0C0 4.60871 2.74258 7.07143 6.125 7.07143V10.6071C6.125 10.8232 6.32188 11 6.5625 11H7.4375C7.67812 11 7.875 10.8232 7.875 10.6071V7.07143C7.875 4.03415 5.13242 1.57143 1.75 1.57143ZM12.25 0C9.94766 0 7.94609 1.14174 6.89883 2.82857C7.65625 3.57009 8.2168 4.47121 8.51211 5.47054C11.5938 5.18326 14 2.84576 14 0H12.25Z"
-                      fill="#4ECF50" />
-                  </svg>
-                  {{ item.customer.name }}
-                </template>
-              </td>
-
+              <td>{{ item.worker.bingnb }}</td>
+              <td>{{ item.customer.name }}</td>
               <!-- 데이터 바꾸려면 data.mjs 참고해서 사용하기
             ex) 고객 주소 사용할 거면 {{ item.customer.mobile }} => {{ item.customer.address }}
             기사 이메일 사용할 거면 {{ item.worker.name || "-" }} => {{ item.worker.email || "-" }}
              -->
-              <td class="profile-h4">{{ item.customer.mobile }}</td>
-              <td class="profile-h4">{{ item.reservdate }}</td>
-              <td class="profile-h4">{{ item.reservinfo.date }} {{ item.reservinfo.time }}</td>
-              <td class="profile-h4">{{ item.worker.name || "-" }}</td>
+              <td class="profile-h4">{{ item.worker.mobile }}</td>
+              <td class="profile-h4">{{ item.customer.address }}</td>
+              <td class="profile-h4">{{ item.reservinfo.date }}</td>
+              <td class="profile-h4">{{ addOneYear(item) }}</td>
               <td class="profile-h4">{{ item.worker.mobile || "-" }}</td>
               <td class="profile-h4">
                 <span :class="`statusbox-${item.status}`">
