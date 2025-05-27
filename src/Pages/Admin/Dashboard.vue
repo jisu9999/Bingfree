@@ -429,7 +429,7 @@ function toggleAlert(index) {
                 </span>
               </td>
               <td class="btnbox">
-                <button class="modal" v-on:click="viewreceipt = true">영수증 보기</button>
+                <button class="modal" style="margin-right: 10px;" v-on:click="viewreceipt = true">영수증 보기</button>
                 <button class="modal" @click="openDetailById(item.id)">상세보기</button>
               </td>
             </tr>
