@@ -263,7 +263,7 @@ import Header from "@/components/Header.vue";
     <div
       class="w-28 h-5 left-[926px] top-[429.12px] absolute text-center justify-start"
     >
-      <img src="/public/prime/Bingprime_just.logo.png" alt="로고" />
+      <img src="/prime/BingPrime_just.logo.png" alt="로고" />
     </div>
     <div
       class="w-48 h-8 left-[865px] top-[478.12px] absolute text-center justify-start text-black text-sm font-normal font-['Pretendard'] whitespace-nowrap"
@@ -330,6 +330,6 @@ import Header from "@/components/Header.vue";
         </div>
 
         <div class="w-[150px] h-auto left-[98px] top-[27px] absolute text-center justify-start">
-          <img src="/public/prime/Login_logo.png" alt="빙프라임로고" class="w-full" />
+          <img src="/prime/Login_logo.png" alt="빙프라임로고" class="w-full" />
         </div>
       </div> -->

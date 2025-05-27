@@ -282,28 +282,35 @@ const chartOptions = {
 };
 
 // 알림 활성화 토글
-document.addEventListener("DOMContentLoaded", function () {
-  // 모든 .alert-box 요소에 대해 이벤트 등록
-  const alertBoxes = document.querySelectorAll(".alert-box");
+import { reactive } from "vue";
 
-  alertBoxes.forEach(function (box) {
-    box.addEventListener("click", function () {
-      // active 클래스 토글
-      box.classList.toggle("active");
+const alerts = reactive([
+  {
+    icon: "/prime/alert-claim-icon.png",
+    alt: "클레임 알림 아이콘",
+    message: "클레임건이 있습니다.",
+    time: "오전 10:00",
+    active: false,
+  },
+  {
+    icon: "/prime/alert-newres-icon.png",
+    alt: "새로운 예약 알림 아이콘",
+    message: "새로운 예약이 있습니다.",
+    time: "오전 11:10",
+    active: false,
+  },
+  {
+    icon: "/prime/alert-saftytraining-icon.png",
+    alt: "안전교육 알림 아이콘",
+    message: "새로운 안전교육 영상을 시청해 주세요.",
+    time: "오후 14:00",
+    active: false,
+  },
+]);
 
-      // 상태 아이콘 이미지찾기
-      let stateIconImg = box.querySelector(".alert-state-icon img");
-
-      if (stateIconImg) {
-        const isActive = box.classList.contains("active");
-
-        // 상태에 따라 이미지 변경
-        stateIconImg.src = isActive ? "/prime/alert-state-on-icon.png" : "/prime/alert-state-off-icon.png";
-        stateIconImg = isActive ? "상태 활성화 아이콘" : "상태 비활성화 아이콘";
-      }
-    });
-  });
-});
+function toggleAlert(index) {
+  alerts[index].active = !alerts[index].active;
+}
 // 대시 보드 관련
 </script>
 <template>
@@ -721,44 +728,29 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
       <div class="alert">
         <h2 class="alert-h2">알림</h2>
-        <div class="alert-box-wrap">
-          <div class="alert-box">
-            <div class="alert-icon">
-              <img src="/prime/alert-claim-icon.png" alt="클레임 알림 아이콘" />
-            </div>
-            <div class="alert-desc">
-              <p class="alert-instructions">클레임건이 있습니다.</p>
-              <p class="alert-time">오전 10:00</p>
-            </div>
-            <div class="alert-state-icon">
-              <img class="state-off-icon" src="/prime/alert-state-off-icon.png" alt="상태 비활성화 아이콘" />
-            </div>
-          </div>
-          <div class="alert-box">
-            <div class="alert-icon">
-              <img src="/prime/alert-newres-icon.png" alt="새로운 예약 알림 아이콘" />
-            </div>
-            <div class="alert-desc">
-              <p class="alert-instructions">새로운 예약이 있습니다.</p>
-              <p class="alert-time">오전 11:10</p>
-            </div>
-            <div class="alert-state-icon">
-              <img class="state-off-icon" src="/prime/alert-state-off-icon.png" alt="상태 활성화 아이콘" />
-            </div>
-          </div>
-          <div class="alert-box">
-            <div class="alert-icon">
-              <img src="/prime/alert-saftytraining-icon.png" alt="안전교육 알림 아이콘" />
-            </div>
-            <div class="alert-desc">
-              <p class="alert-instructions">새로운 안전교육 영상을 시청해 주세요.</p>
-              <p class="alert-time">오후 14:00</p>
-            </div>
-            <div class="alert-state-icon">
-              <img class="state-off-icon" src="/prime/alert-state-off-icon.png" alt="상태 비활성화 아이콘" />
-            </div>
-          </div>
+    <div class="alert-box-wrap">
+      <div
+        v-for="(alert, index) in alerts"
+        :key="index"
+        class="alert-box"
+        :class="{ active: alert.active }"
+        @click="toggleAlert(index)"
+      >
+        <div class="alert-icon">
+          <img :src="alert.icon" :alt="alert.alt" />
         </div>
+        <div class="alert-desc">
+          <p class="alert-instructions">{{ alert.message }}</p>
+          <p class="alert-time">{{ alert.time }}</p>
+        </div>
+        <div class="alert-state-icon">
+          <img
+            :src="alert.active ? '/prime/alert-state-on-icon.png' : '/prime/alert-state-off-icon.png'"
+            :alt="alert.active ? '상태 활성화 아이콘' : '상태 비활성화 아이콘'"
+          />
+        </div>
+      </div>
+    </div>
       </div>
     </div>
   </div>
