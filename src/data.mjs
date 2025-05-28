@@ -210,7 +210,6 @@ export const reservList = ref([
     reservdate: "2025.06.17(화) 14:00",
   },
 ]);
-
 // 전체 테이블 데이터
 export const fullReservationList = reactive([
   {
@@ -1540,7 +1539,6 @@ export const fullReservationList = reactive([
     primemember: false, // (예시: 랜덤)
   },
 ]);
-
 // 지역 선택 데이터
 export const koreaLocations = reactive({
   서울특별시: [
@@ -1784,7 +1782,6 @@ export const koreaLocations = reactive({
   ],
   제주특별자치도: ["서귀포시", "제주시"],
 });
-
 // 테이블 헤더 데이터
 export const TableHeaders = [
   { key: "item", label: "결제 내역" },
@@ -1807,8 +1804,8 @@ export const TableData = [
     receiptUrl: "#",
   },
 ];
-
 // 클레임 내용 데이터
+
 export const fullclaimList = reactive([
   {
     id: 1,

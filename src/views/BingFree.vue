@@ -214,7 +214,7 @@ const swiperBreakpoints = {
             <img src="/images/popup.gif" alt="뉴스 gif" />
           </div>
           <div class="popup_bt">
-            <router-link to="/Check">👉가격표 보기</router-link>
+            <router-link to="/BingPrime">👉구독혜택 보기</router-link>
             <router-link to="/Reservation">💬 바로 예약하기</router-link>
           </div>
         </div>

@@ -513,6 +513,7 @@
     flex-direction: column;
     border-radius: 8px;
     @include mobile {
+      margin-top: 20px;
       .table {
         thead {
           display: none;
