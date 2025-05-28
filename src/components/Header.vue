@@ -49,98 +49,62 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="freehead" :class="{ scrolled: isScrolled || isMenuOpen }">
+  <header class="bingfree_hd" :class="{ scrolled: isScrolled || isMenuOpen }">
     <div class="inner">
       <router-link to="/" @click="isMenuOpen = false">
         <img src="/images/main-logo.png" alt="메인 로고" />
       </router-link>
       <nav :class="{ open: isMenuOpen }">
-        <router-link
-          to="/IntroBing"
-          :class="{ active: route.path === '/IntroBing' }"
-        >
-          빙프리란?
-        </router-link>
-        <router-link to="/Check" :class="{ active: route.path === '/Check' }">
-          요금안내
-        </router-link>
-        <router-link to="/Review" :class="{ active: route.path === '/Review' }">
-          고객리뷰
-        </router-link>
-        <router-link
-          to="/Reservation"
-          :class="{ active: route.path === '/Reservation' }"
-        >
-          예약하기
-        </router-link>
-        <router-link to="/Login"
-          ><img
-            src="/images/loginicon.png"
-            alt="로그인"
-          />&emsp;&emsp;&nbsp;</router-link
-        >
+        <router-link to="/IntroBing" :class="{ active: route.path === '/IntroBing' }"> 빙프리란? </router-link>
+        <router-link to="/Check" :class="{ active: route.path === '/Check' }"> 요금안내 </router-link>
+        <router-link to="/Review" :class="{ active: route.path === '/Review' }"> 고객리뷰 </router-link>
+        <router-link to="/Reservation" :class="{ active: route.path === '/Reservation' }"> 예약하기 </router-link>
+        <router-link to="/Login"><img src="/images/loginicon.png" alt="로그인" />&emsp;&emsp;&nbsp;</router-link>
       </nav>
 
       <div class="hamburger" @click="toggleMenu">
         <img
-          :src="
-            isMenuOpen
-              ? '/images/closing_icon.png?v=1.2'
-              : '/images/hambergar_menu_icon.png?v=1.2'
-          "
-          alt="menu toggle"
-        />
+          :src="isMenuOpen ? '/images/closing_icon.png?v=1.2' : '/images/hambergar_menu_icon.png?v=1.2'"
+          alt="menu toggle" />
       </div>
     </div>
   </header>
 
   <!-- 모바일 햄버거 메뉴 -->
   <nav class="mo-menu" v-show="isMenuOpen">
+    <ul class="mo-sns">
+      <li>
+        <a href="#"><img src="/public/images/youtube.png" alt="" /></a>
+      </li>
+      <li>
+        <a href="#"><img src="/public/images/facebook.png" alt="" /></a>
+      </li>
+      <li>
+        <a href="#"><img src="/public/images/linkedin.png" alt="" /></a>
+      </li>
+    </ul>
     <div class="mo-logo">
-      <p>
-        청소가 필요한 순간<br />검증된 기술과 경험<br />제빙기 케어, 여기가 정답
-      </p>
+      <p>청소가 필요한 순간<br />검증된 기술과 경험<br />제빙기 케어, 여기가 정답</p>
       <img src="/images/main-logo.png" alt="" />
     </div>
     <ul class="menu-list">
       <li class="first">
-        <a
-          @click.prevent="navigateTo('/IntroBing')"
-          :class="{ active: route.path === '/IntroBing' }"
-        >
-          빙프리란?
-        </a>
+        <a @click.prevent="navigateTo('/IntroBing')" :class="{ active: route.path === '/IntroBing' }"> 빙프리란? </a>
       </li>
       <li>
-        <a
-          @click.prevent="navigateTo('/Check')"
-          :class="{ inactive: route.path !== '/Check' }"
-        >
-          요금 안내
-        </a>
+        <a @click.prevent="navigateTo('/Check')" :class="{ inactive: route.path !== '/Check' }"> 요금 안내 </a>
       </li>
       <li>
-        <a
-          @click.prevent="navigateTo('/Review')"
-          :class="{ inactive: route.path !== '/Review' }"
-        >
-          고객리뷰
-        </a>
+        <a @click.prevent="navigateTo('/Review')" :class="{ inactive: route.path !== '/Review' }"> 고객리뷰 </a>
       </li>
       <li>
-        <a
-          @click.prevent="navigateTo('/Reservation')"
-          :class="{ inactive: route.path !== '/Reservation' }"
-        >
+        <a @click.prevent="navigateTo('/Reservation')" :class="{ inactive: route.path !== '/Reservation' }">
           예약하기
         </a>
       </li>
       <li>
-        <a
-          @click.prevent="navigateTo('/Login')"
-          :class="{ inactive: route.path !== '/Login' }"
-        >
-          <img src="/images/loginicon.png" alt="로그인" />
+        <a @click.prevent="navigateTo('/Login')" :class="{ inactive: route.path !== '/Login' }">
+          로그인
         </a>
       </li>
     </ul>
@@ -148,13 +112,13 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-header.freehead {
+header {
   margin-top: 40px;
   margin-bottom: -80px;
   width: 100%;
   height: 80px;
   position: relative;
-  z-index: 99999;
+  z-index: 9999999999999;
   .inner {
     width: 100%;
     height: 100%;
@@ -259,7 +223,7 @@ header.freehead {
     left: 0;
 
     background-color: #1651da;
-    z-index: 99;
+    z-index: 9999999999;
     .mo-sns {
       position: absolute;
       right: 20px;
