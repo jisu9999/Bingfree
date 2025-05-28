@@ -43,7 +43,7 @@ const links = [
     icon: "fas fa-user-tie",
   },
   {
-    name: "매출/정산 내역",
+    name: "매출 내역",
     imgUrl: "/public/prime/pay-icon.png",
     path: "/Admin/Sales",
     icon: "fas fa-user-tie",
