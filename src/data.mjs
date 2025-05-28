@@ -1767,6 +1767,7 @@ export const TableData = [
   },
 ];
 // 클레임 내용 데이터
+
 export const fullclaimList = reactive([
   {
     id: 1,
