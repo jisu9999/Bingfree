@@ -50,7 +50,13 @@ export const detailList = [
       membershipDiscount: -210000,
       extraDiscount: -4900,
       get total() {
-        return this.service + this.extra + this.coupon + this.membershipDiscount + this.extraDiscount;
+        return (
+          this.service +
+          this.extra +
+          this.coupon +
+          this.membershipDiscount +
+          this.extraDiscount
+        );
       },
     },
   },
@@ -103,7 +109,13 @@ export const detailList = [
       membershipDiscount: 0,
       extraDiscount: 0,
       get total() {
-        return this.service + this.extra + this.coupon + this.membershipDiscount + this.extraDiscount;
+        return (
+          this.service +
+          this.extra +
+          this.coupon +
+          this.membershipDiscount +
+          this.extraDiscount
+        );
       },
     },
   },
@@ -156,7 +168,13 @@ export const detailList = [
       membershipDiscount: 0,
       extraDiscount: 0,
       get total() {
-        return this.service + this.extra + this.coupon + this.membershipDiscount + this.extraDiscount;
+        return (
+          this.service +
+          this.extra +
+          this.coupon +
+          this.membershipDiscount +
+          this.extraDiscount
+        );
       },
     },
   },
@@ -1568,8 +1586,28 @@ export const koreaLocations = reactive({
     "중구",
     "해운대구",
   ],
-  대구광역시: ["남구", "달서구", "달성군", "동구", "북구", "서구", "수성구", "중구"],
-  인천광역시: ["강화군", "계양구", "남동구", "동구", "미추홀구", "부평구", "서구", "연수구", "옹진군", "중구"],
+  대구광역시: [
+    "남구",
+    "달서구",
+    "달성군",
+    "동구",
+    "북구",
+    "서구",
+    "수성구",
+    "중구",
+  ],
+  인천광역시: [
+    "강화군",
+    "계양구",
+    "남동구",
+    "동구",
+    "미추홀구",
+    "부평구",
+    "서구",
+    "연수구",
+    "옹진군",
+    "중구",
+  ],
   광주광역시: ["광산구", "남구", "동구", "북구", "서구"],
   대전광역시: ["대덕구", "동구", "서구", "유성구", "중구"],
   울산광역시: ["남구", "동구", "북구", "울주군", "중구"],

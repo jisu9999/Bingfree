@@ -1422,16 +1422,8 @@ const waitingListOnly = computed(() =>
     />
 
     <div class="btnbox">
-      <button class="edit" style="padding: 1.5% 3%" @click="printReceipt">
-        출력하기
-      </button>
-      <button
-        class="fix"
-        style="padding: 1.6% 5.5%"
-        @click="viewreceipt = false"
-      >
-        닫기
-      </button>
+      <button class="edit" @click="printReceipt">출력하기</button>
+      <button class="fix" @click="viewreceipt = false">닫기</button>
     </div>
   </div>
   <!-- 보고서 제출 모달  -->
