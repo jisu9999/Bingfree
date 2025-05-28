@@ -1157,12 +1157,11 @@ const statusCards = computed(() => [
       />
 
       <div class="btnbox">
-        <button class="edit" style="padding: 1.5% 3%" @click="printReceipt">
+        <button class="edit" @click="printReceipt">
           출력하기
         </button>
         <button
           class="fix"
-          style="padding: 1.6% 5.5%"
           @click="viewreceipt = false"
         >
           닫기

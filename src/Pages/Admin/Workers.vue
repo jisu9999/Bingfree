@@ -345,16 +345,16 @@ function addOneYear(item) {
               <td class="profile-h4">{{ addOneYear(item) }}</td>
               <td class="profile-h4">{{ item.worker.mobile || "-" }}</td>
               <td class="profile-h4">
-                <span :class="`statusbox-${item.status}`">
+                <span :class="`wkstatusbox-${item.status}`">
                   {{
                     item.status === "waiting"
-                      ? "대기중"
+                      ? "활동중"
                       : item.status === "assigned"
-                      ? "진행중"
+                      ? "off"
                       : item.status === "done"
-                      ? "청소완료"
+                      ? "off"
                       : item.status === "confirmed"
-                      ? "확정완료"
+                      ? "off"
                       : "알수없음"
                   }}
                 </span>

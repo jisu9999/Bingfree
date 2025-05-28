@@ -2,7 +2,7 @@
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "../../stores/auth";
 import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
@@ -69,6 +69,31 @@ const logout = () => {
   authStore.logout();
   router.push("/");
 };
+
+// 현재 시간
+const currentTime = ref("");
+
+let interval;
+onMounted(() => {
+  updateTime(); // 처음 한 번 세팅
+  interval = setInterval(updateTime, 500);
+});
+
+onUnmounted(() => {
+  clearInterval(interval);
+});
+
+function updateTime() {
+  currentTime.value = new Date().toLocaleString("ko-KR", {
+    year: "numeric",
+    month: "long", // '2-digit'으로 바꾸면 05 이렇게 나와
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true, // true면 오전/오후 표시됨
+  });
+}
 </script>
 <!-- 지수 대시보드 홈 -->
 
@@ -81,6 +106,11 @@ const logout = () => {
       /></router-link>
     </div>
     <div class="right webonly">
+      <div class="right-icon-time">
+        <p style="display: inline-block; font-size: 18px; color: #212121">
+          {{ currentTime }}
+        </p>
+      </div>
       <div class="right-icon saerch">
         <img src="/public/prime/search-icon.png" alt="돋보기 아이콘" />
       </div>
@@ -103,6 +133,16 @@ const logout = () => {
       </div>
     </div>
     <div class="sidebar mbonly">
+      <p
+        style="
+          display: inline-block;
+          font-size: 18px;
+          color: #212121;
+          margin-right: 20px;
+        "
+      >
+        {{ currentTime }}
+      </p>
       <button class="hbbar" v-on:click="menuopen = true">
         <svg
           width="28"
@@ -172,7 +212,11 @@ const logout = () => {
           {{ link.name }}
         </router-link>
         <div class="btnbox">
-          <button class="logout modal" style="text-decoration: none">
+          <button
+            v-on:click="logout"
+            class="logout modal"
+            style="text-decoration: none"
+          >
             <svg
               width="16"
               height="16"
@@ -225,8 +269,13 @@ const logout = () => {
           :key="link.path"
           :to="link.path"
           class="flex items-center text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray8 transition-colors"
-          :class="{ 'bg-gray1 text-gray8 font-semibold': isActive(link.path) }">
-          <img :src="link.imgUrl" :alt="link.name" class="w-[16px] h-[16px] object-contain object-center" />
+          :class="{ 'bg-gray1 text-gray8 font-semibold': isActive(link.path) }"
+        >
+          <img
+            :src="link.imgUrl"
+            :alt="link.name"
+            class="w-[16px] h-[16px] object-contain object-center"
+          />
           <span class="ml-2">{{ link.name }}</span>
         </router-link>
       </nav>
