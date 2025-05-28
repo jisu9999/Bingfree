@@ -192,7 +192,6 @@ export const reservList = ref([
     reservdate: "2025.06.17(화) 14:00",
   },
 ]);
-
 // 전체 테이블 데이터
 export const fullReservationList = reactive([
   {
@@ -1522,7 +1521,6 @@ export const fullReservationList = reactive([
     primemember: false, // (예시: 랜덤)
   },
 ]);
-
 // 지역 선택 데이터
 export const koreaLocations = reactive({
   서울특별시: [
@@ -1746,7 +1744,6 @@ export const koreaLocations = reactive({
   ],
   제주특별자치도: ["서귀포시", "제주시"],
 });
-
 // 테이블 헤더 데이터
 export const TableHeaders = [
   { key: "item", label: "결제 내역" },
@@ -1769,8 +1766,8 @@ export const TableData = [
     receiptUrl: "#",
   },
 ];
+// 클레임 내용 데이터
 
-// 클레임 내용 데이터 (채연)
 export const fullclaimList = reactive([
   {
     id: 1,
@@ -1833,6 +1830,12 @@ export const fullclaimList = reactive([
       coupon: 0,
       membershipDiscount: -210000,
       extraDiscount: -4900,
+    },
+    sh: {
+      webid: "qortjf325",
+      address: "대구광역시 동구",
+      price: 96000,
+      joindate: "2025-06-05",
     },
     primemember: true,
   },
@@ -2745,6 +2748,7 @@ export const fullclaimList = reactive([
     primemember: true,
   },
 ]);
+// 정산
 export const fullSaleList = reactive([
   {
     id: 1,
