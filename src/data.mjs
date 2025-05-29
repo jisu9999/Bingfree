@@ -1,4 +1,17 @@
 import { ref, reactive } from "vue";
+// 로그인 테스트 유저
+export const dummyUsers = [
+  {
+    email: "A@A.com",
+    password: "1234",
+    name: "김효빈",
+    role: "customer", // 꼭 일치하게
+    phone: "010-0000-0000",
+    address: "서울시",
+    detailAddress: "상세주소",
+    createdAt: "2025-05-01",
+  },
+];
 export const detailList = [
   {
     id: 1,

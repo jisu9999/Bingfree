@@ -374,11 +374,11 @@ const statusCards = [
               청소대기</label
             >
             <label
-              ><input type="radio" value="confirmed" v-model="statusFilter" />
+              ><input type="radio" value="done" v-model="statusFilter" />
               청소완료</label
             >
             <label
-              ><input type="radio" value="done" v-model="statusFilter" />
+              ><input type="radio" value="confirmed" v-model="statusFilter" />
               확정완료</label
             >
           </div>
@@ -584,15 +584,15 @@ const statusCards = [
                   청소대기</label
                 >
                 <label
+                  ><input type="radio" value="done" v-model="statusFilter" />
+                  청소완료</label
+                >
+                <label
                   ><input
                     type="radio"
                     value="confirmed"
                     v-model="statusFilter"
                   />
-                  청소완료</label
-                >
-                <label
-                  ><input type="radio" value="done" v-model="statusFilter" />
                   확정완료</label
                 >
               </div>
