@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="agree_box max-w-[860px] mx-auto py-20 px-6 bg-white">
     <!-- 제목 -->
     <h2 class="text-3xl font-bold text-center text-neutral-800 mb-16">약관동의</h2>
@@ -131,6 +132,7 @@
 </template>
 
 <script setup>
+import Header from "@/components/Header.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 
