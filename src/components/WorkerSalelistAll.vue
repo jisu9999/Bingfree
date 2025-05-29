@@ -1,6 +1,6 @@
 <template>
   <div class="tablelist">
-    <h2 class="profile-h2">정산 현황</h2>
+    <h1 class="profile-h2">정산 현황</h1>
     <table class="table">
       <thead>
         <tr>
