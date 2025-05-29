@@ -515,7 +515,7 @@ function prevPage() {
                   stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round" />
-        </svg>
+              </svg>
             </div>
 
             <!-- 글쓰기 -->
@@ -603,7 +603,7 @@ function prevPage() {
                   stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round" />
-          </svg>
+              </svg>
             </div>
 
             <!-- 글쓰기 -->
@@ -759,7 +759,7 @@ function prevPage() {
     <ul class="form">
       <li class="form-line">
         <span class="label">이름</span>
-        <input type="text" v-model="author" style="background-color: #f5f5f5" class="name-label" />
+        <input type="text" value="관리자" readonly style="background-color: #f5f5f5" class="name-label" />
       </li>
 
       <li>
