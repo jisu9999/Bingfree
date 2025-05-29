@@ -597,7 +597,8 @@ const checkIndividual = () => {
                     viewBox="0 0 15 15"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    style="display: inline-block">
                     <rect width="15" height="15" fill="url(#pattern0_273_889)" />
                     <defs>
                       <pattern id="pattern0_273_889" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -616,7 +617,13 @@ const checkIndividual = () => {
                 </template>
                 <template v-else>
                   <!-- 초록 나뭇잎 아이콘 -->
-                  <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    style="display: inline-block"
+                    width="14"
+                    height="11"
+                    viewBox="0 0 14 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M1.75 1.57143H0C0 4.60871 2.74258 7.07143 6.125 7.07143V10.6071C6.125 10.8232 6.32188 11 6.5625 11H7.4375C7.67812 11 7.875 10.8232 7.875 10.6071V7.07143C7.875 4.03415 5.13242 1.57143 1.75 1.57143ZM12.25 0C9.94766 0 7.94609 1.14174 6.89883 2.82857C7.65625 3.57009 8.2168 4.47121 8.51211 5.47054C11.5938 5.18326 14 2.84576 14 0H12.25Z"
                       fill="#4ECF50" />
