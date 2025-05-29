@@ -414,13 +414,13 @@ const statusCards = computed(() => [
             청소대기</label
           >
           <label
-            ><input type="radio" value="confirmed" v-model="statusFilter" />
-            청소완료</label
-          >
-          <label
-            ><input type="radio" value="done" v-model="statusFilter" />
-            확정완료</label
-          >
+              ><input type="radio" value="done" v-model="statusFilter" />
+              청소완료</label
+            >
+            <label
+              ><input type="radio" value="confirmed" v-model="statusFilter" />
+              확정완료</label
+            >
         </div>
         <div class="searchdate">
           <div class="datepicker-box">
@@ -615,14 +615,14 @@ const statusCards = computed(() => [
                 ><input type="radio" value="assigned" v-model="statusFilter" />
                 청소대기</label
               >
-              <label
-                ><input type="radio" value="confirmed" v-model="statusFilter" />
-                청소완료</label
-              >
-              <label
-                ><input type="radio" value="done" v-model="statusFilter" />
-                확정완료</label
-              >
+               <label
+              ><input type="radio" value="done" v-model="statusFilter" />
+              청소완료</label
+            >
+            <label
+              ><input type="radio" value="confirmed" v-model="statusFilter" />
+              확정완료</label
+            >
             </div>
           </div>
           <div class="searchdate">
