@@ -14,49 +14,49 @@ const menuopen = ref(false);
 const links = [
   {
     name: "대시보드",
-    imgUrl: "/public/prime/dashboard-icon.png",
+    imgUrl: "/prime/dashboard-icon.png",
     path: "/Admin/Dashboard",
     icon: "fas fa-chart-line",
   },
   {
     name: "예약관리",
-    imgUrl: "/public/prime/reservation-icon.png",
+    imgUrl: "/prime/reservation-icon.png",
     path: "/Admin/AdminReservation",
     icon: "fas fa-calendar-check",
   },
   {
     name: "고객관리",
-    imgUrl: "/public/prime/customer-icon.png",
+    imgUrl: "/prime/customer-icon.png",
     path: "/Admin/Customers",
     icon: "fas fa-users",
   },
   {
     name: "기사관리",
-    imgUrl: "/public/prime/worker-icon.png",
+    imgUrl: "/prime/worker-icon.png",
     path: "/Admin/Workers",
     icon: "fas fa-user-tie",
   },
   {
     name: "클레임",
-    imgUrl: "/public/prime/claim-icon.png",
+    imgUrl: "/prime/claim-icon.png",
     path: "/Admin/Claim",
     icon: "fas fa-user-tie",
   },
   {
     name: "정산내역",
-    imgUrl: "/public/prime/pay-icon.png",
+    imgUrl: "/prime/pay-icon.png",
     path: "/Admin/Sales",
     icon: "fas fa-user-tie",
   },
   {
     name: "게시판",
-    imgUrl: "/public/prime/notice-icon.png",
+    imgUrl: "/prime/notice-icon.png",
     path: "/Admin/Board",
     icon: "fas fa-user-tie",
   },
   {
     name: "설정",
-    imgUrl: "/public/prime/settings-icon.png",
+    imgUrl: "/prime/settings-icon.png",
     path: "/Admin/Settings",
     icon: "fas fa-cog",
   },
@@ -102,7 +102,7 @@ function updateTime() {
   <header class="adminHead">
     <div class="logo">
       <router-link to="/Worker/ddashboard"
-        ><img src="/public/prime/bingfree-logo.png" alt="빙프리로고"
+        ><img src="/prime/bingfree-logo.png" alt="빙프리로고"
       /></router-link>
     </div>
     <div class="right webonly">
@@ -112,24 +112,24 @@ function updateTime() {
         </p>
       </div>
       <div class="right-icon saerch">
-        <img src="/public/prime/search-icon.png" alt="돋보기 아이콘" />
+        <img src="/prime/search-icon.png" alt="돋보기 아이콘" />
       </div>
       <div class="right-icon bell">
-        <img src="/public/prime/bell-icon.png" alt="알림 아이콘" />
+        <img src="/prime/bell-icon.png" alt="알림 아이콘" />
         <img
           class="redPoint"
-          src="/public/prime/redPoint-icon.png"
+          src="/prime/redPoint-icon.png"
           alt="알림이 있을때 활성화되는 빨간도트 아이콘"
         />
       </div>
       <div class="right-icon darkmode">
-        <img src="/public/prime/darkmode-icon.png" alt="다크모드 아이콘" />
+        <img src="/prime/darkmode-icon.png" alt="다크모드 아이콘" />
       </div>
       <div class="right-icon setting">
-        <img src="/public/prime/setting-icon.png" alt="설정 아이콘" />
+        <img src="/prime/setting-icon.png" alt="설정 아이콘" />
       </div>
       <div class="right-icon profile">
-        <img src="/public/prime/profile-image-icon.png" alt="프로필 아이콘" />
+        <img src="/prime/profile-image-icon.png" alt="프로필 아이콘" />
       </div>
     </div>
     <div class="sidebar mbonly">
@@ -178,25 +178,25 @@ function updateTime() {
       <nav class="side-menu" v-show="menuopen">
         <div class="right mbonly">
           <div class="right-icon saerch">
-            <img src="/public/prime/search-icon.png" alt="돋보기 아이콘" />
+            <img src="/prime/search-icon.png" alt="돋보기 아이콘" />
           </div>
           <div class="right-icon bell">
-            <img src="/public/prime/bell-icon.png" alt="알림 아이콘" />
+            <img src="/prime/bell-icon.png" alt="알림 아이콘" />
             <img
               class="redPoint"
-              src="/public/prime/redPoint-icon.png"
+              src="/prime/redPoint-icon.png"
               alt="알림이 있을때 활성화되는 빨간도트 아이콘"
             />
           </div>
           <div class="right-icon darkmode">
-            <img src="/public/prime/darkmode-icon.png" alt="다크모드 아이콘" />
+            <img src="/prime/darkmode-icon.png" alt="다크모드 아이콘" />
           </div>
           <div class="right-icon setting">
-            <img src="/public/prime/setting-icon.png" alt="설정 아이콘" />
+            <img src="/prime/setting-icon.png" alt="설정 아이콘" />
           </div>
           <div class="right-icon profile">
             <img
-              src="/public/prime/profile-image-icon.png"
+              src="/prime/profile-image-icon.png"
               alt="프로필 아이콘"
             />
           </div>
