@@ -590,7 +590,6 @@ function cancel() {
               <td data-label="연락처">{{ item.customer.mobile }}</td>
               <td data-label="cs민감도">
                 {{ item.customer.csSencitive }}
-                <img :src="item.customer.avatar" alt="고객 이미지" class="w-8 h-8 rounded-full inline-block ml-2" />
               </td>
 
               <td class="btnbox" data-label="접수일자">
