@@ -1813,7 +1813,7 @@ export const fullclaimList = reactive([
       email: "yunjung@naver.com",
       mobile: "010-1451-1234",
       csSencitive: "신규/초회",
-      avatar: "/prime/cs_first.png",
+      avatar: "/prime/cs_icon.svg",
       address: "대구 서구 원대로13길 1, 1층 (원대동1가 1-1)",
     },
     membership: {
