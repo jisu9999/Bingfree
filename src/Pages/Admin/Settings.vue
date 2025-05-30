@@ -1,9 +1,10 @@
 <!-- 채연 설정 -->
 <template>
-  <div class="p-8 max-w-7xl dark:bg-gray-900">
-    <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-      {{ t("settings.title") }}
-    </h1>
+  <div class="max-w-7xl dark:bg-gray-900">
+    <div class="dash">
+      <p class="dash-name">설정</p>
+      <p class="dash-desc" style="margin-bottom: 2%">관리자 화면의 디스플레이 설정을 자유롭게 변경할 수 있습니다.</p>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
       <!-- 알림 설정 -->
@@ -297,5 +298,18 @@ const saveSettings = () => {
 }
 .animate-slide-in {
   animation: slide-in 0.3s ease-out;
+}
+.dash {
+  padding: 0 1%;
+  .dash-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #424242;
+  }
+  .dash-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: #757575;
+  }
 }
 </style>
