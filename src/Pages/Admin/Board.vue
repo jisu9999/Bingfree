@@ -439,304 +439,307 @@ function prevPage() {
 <template>
   <div class="board-page">
     <!-- 페이지 헤더 -->
-    <div class="board-header">
-      <h1 class="board-title">게시판</h1>
+    <div class="dash">
+      <p class="dash-name">게시판</p>
+      <p class="dash-desc">공지사항 및 교육내용을 확인할수있습니다.</p>
     </div>
 
-    <!-- 게시판 -->
-    <div class="board-section">
-      <div class="board-section-1">
-        <!-- 게시판 제목 -->
-        <div class="board-section-header">
-          <!-- 큰제목 -->
-          <h2 class="board-subtitle">나에게 필요한 안전교육</h2>
-          &nbsp;
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect width="18" height="18" fill="url(#pattern0_656_530)" />
-            <defs>
-              <pattern id="pattern0_656_530" patternContentUnits="objectBoundingBox" width="1" height="1">
-                <use xlink:href="#image0_656_530" transform="scale(0.0169492)" />
-              </pattern>
-              <image
-                id="image0_656_530"
-                width="59"
-                height="59"
-                preserveAspectRatio="none"
-                xlink:href="data:image/png;base64,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" />
-            </defs></svg
-          >&nbsp; &nbsp; &nbsp;
-          <!-- 서브 제목 -->
-          <div class="board-subtxtwrap">
-            <div class="board-subtxtbg">
-              <p class="board-subtxt">나와 고객의 안전을 위한 첫걸음,</p>
-            </div>
+    <div class="board-all-wrap">
+      <!-- 게시판 -->
+      <div class="board-section">
+        <div class="board-section-1">
+          <!-- 게시판 제목 -->
+          <div class="board-section-header">
+            <!-- 큰제목 -->
+            <h2 class="board-subtitle">나에게 필요한 안전교육</h2>
             &nbsp;
-            <p class="board-subtxt2">지금 바로 안전교육 이수하세요.</p>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect width="18" height="18" fill="url(#pattern0_656_530)" />
+              <defs>
+                <pattern id="pattern0_656_530" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_656_530" transform="scale(0.0169492)" />
+                </pattern>
+                <image
+                  id="image0_656_530"
+                  width="59"
+                  height="59"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,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" />
+              </defs></svg
+            >&nbsp; &nbsp; &nbsp;
+            <!-- 서브 제목 -->
+            <div class="board-subtxtwrap">
+              <div class="board-subtxtbg">
+                <p class="board-subtxt">나와 고객의 안전을 위한 첫걸음,</p>
+              </div>
+              &nbsp;
+              <p class="board-subtxt2">지금 바로 안전교육 이수하세요.</p>
+            </div>
+          </div>
+          <!-- 검색 및 필터 -->
+          <div class="board-filter">
+            <div class="board-filter-controls">
+              <!-- 상태 필터 -->
+              <div class="status-select">
+                <select v-model="statusFilter">
+                  <option value="all">전체</option>
+                  <option value="title">제목</option>
+                  <option value="content">내용</option>
+                  <option value="date">등록일</option>
+                </select>
+              </div>
+              <!-- 검색 입력 -->
+              <div class="search-input">
+                <input v-model="searchQuery" @input="handleInput" type="text" placeholder="검색어를 입력하세요." />
+                <svg
+                  @click="search"
+                  class="cursor-pointer"
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
+                    stroke="#757575"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M18 18L14 14"
+                    stroke="#757575"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <!-- 글쓰기 -->
+              <button class="write-box" v-on:click="clamemodal = true">글쓰기</button>
+            </div>
           </div>
         </div>
-        <!-- 검색 및 필터 -->
-        <div class="board-filter">
-          <div class="board-filter-controls">
-            <!-- 상태 필터 -->
-            <div class="status-select">
-              <select v-model="statusFilter">
-                <option value="all">전체</option>
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="date">등록일</option>
-              </select>
-            </div>
-            <!-- 검색 입력 -->
-            <div class="search-input">
-              <input v-model="searchQuery" @input="handleInput" type="text" placeholder="검색어를 입력하세요." />
-              <svg
-                @click="search"
-                class="cursor-pointer"
-                width="19"
-                height="19"
-                viewBox="0 0 19 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
-                  stroke="#757575"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path
-                  d="M18 18L14 14"
-                  stroke="#757575"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
+        <div class="board-section-2">
+          <div class="board-wrap">
+            <table class="board-table">
+              <thead>
+                <tr>
+                  <th style="width: 10%">번호</th>
+                  <th style="width: 70%">제목</th>
+                  <th style="width: 20%">등록일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(post, index) in paginatedPosts" :key="index">
+                  <td class="board-table-number">
+                    <span v-if="post.notice" class="notice-label">공지</span>
+                    <span v-else>{{ post.number }}</span>
+                  </td>
+                  <td>{{ post.title }}</td>
+                  <td class="board-table-date">{{ post.date }}</td>
+                </tr>
+              </tbody>
+            </table>
 
-            <!-- 글쓰기 -->
-            <button class="write-box" v-on:click="clamemodal = true">글쓰기</button>
-          </div>
-        </div>
-      </div>
-      <div class="board-section-2">
-        <div class="board-wrap">
-          <table class="board-table">
-            <thead>
-              <tr>
-                <th style="width: 10%">번호</th>
-                <th style="width: 70%">제목</th>
-                <th style="width: 20%">등록일</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(post, index) in paginatedPosts" :key="index">
-                <td class="board-table-number">
-                  <span v-if="post.notice" class="notice-label">공지</span>
-                  <span v-else>{{ post.number }}</span>
-                </td>
-                <td>{{ post.title }}</td>
-                <td class="board-table-date">{{ post.date }}</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="pagination">
-            <button
-              v-for="page in totalPages"
-              :key="page"
-              :class="{ active: currentPage === page }"
-              @click="currentPage = page">
-              {{ page }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- 게시판2 -->
-    <!-- 공지사항 게시판 영역 -->
-    <div class="board-section">
-      <div class="board-section-1">
-        <!-- 게시판 제목 -->
-        <div class="board-section-header">
-          <h2 class="board-subtitle-2">공지사항</h2>
-        </div>
-
-        <!-- 검색 및 필터 -->
-        <div class="board-filter">
-          <div class="board-filter-controls">
-            <div class="status-select">
-              <select v-model="noticeStatusFilter">
-                <option value="all">전체</option>
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="date">등록일</option>
-              </select>
+            <div class="pagination">
+              <button
+                v-for="page in totalPages"
+                :key="page"
+                :class="{ active: currentPage === page }"
+                @click="currentPage = page">
+                {{ page }}
+              </button>
             </div>
-            <div class="search-input">
-              <input
-                v-model="noticeSearchQuery"
-                @input="handleNoticeInput"
-                type="text"
-                placeholder="검색어를 입력하세요." />
-              <svg
-                @click="search"
-                class="cursor-pointer"
-                width="19"
-                height="19"
-                viewBox="0 0 19 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
-                  stroke="#757575"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path
-                  d="M18 18L14 14"
-                  stroke="#757575"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-
-            <!-- 글쓰기 -->
-            <button class="write-box" v-on:click="clamemodal = true">글쓰기</button>
           </div>
         </div>
       </div>
-      <div class="board-section-2">
-        <div class="board-wrap">
-          <table class="board-table">
-            <thead>
-              <tr>
-                <th style="width: 10%">번호</th>
-                <th style="width: 70%">제목</th>
-                <th style="width: 20%">등록일</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(post, index) in paginatedNoticePosts" :key="index">
-                <td class="board-table-number">
-                  <span v-if="post.notice" class="notice-label-2">공지</span>
-                  <span v-else>{{ post.number }}</span>
-                </td>
-                <td class="board-table-title">{{ post.title }}</td>
-                <td class="board-table-date">{{ post.date }}</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- 게시판2 -->
+      <!-- 공지사항 게시판 영역 -->
+      <div class="board-section">
+        <div class="board-section-1">
+          <!-- 게시판 제목 -->
+          <div class="board-section-header">
+            <h2 class="board-subtitle-2">공지사항</h2>
+          </div>
 
-          <div class="pagination">
-            <button
-              v-for="page in totalNoticePages"
-              :key="page"
-              :class="{ active: noticeCurrentPage === page }"
-              @click="goToNoticePage(page)">
-              {{ page }}
-            </button>
+          <!-- 검색 및 필터 -->
+          <div class="board-filter">
+            <div class="board-filter-controls">
+              <div class="status-select">
+                <select v-model="noticeStatusFilter">
+                  <option value="all">전체</option>
+                  <option value="title">제목</option>
+                  <option value="content">내용</option>
+                  <option value="date">등록일</option>
+                </select>
+              </div>
+              <div class="search-input">
+                <input
+                  v-model="noticeSearchQuery"
+                  @input="handleNoticeInput"
+                  type="text"
+                  placeholder="검색어를 입력하세요." />
+                <svg
+                  @click="search"
+                  class="cursor-pointer"
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
+                    stroke="#757575"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M18 18L14 14"
+                    stroke="#757575"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <!-- 글쓰기 -->
+              <button class="write-box" v-on:click="clamemodal = true">글쓰기</button>
+            </div>
+          </div>
+        </div>
+        <div class="board-section-2">
+          <div class="board-wrap">
+            <table class="board-table">
+              <thead>
+                <tr>
+                  <th style="width: 10%">번호</th>
+                  <th style="width: 70%">제목</th>
+                  <th style="width: 20%">등록일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(post, index) in paginatedNoticePosts" :key="index">
+                  <td class="board-table-number">
+                    <span v-if="post.notice" class="notice-label-2">공지</span>
+                    <span v-else>{{ post.number }}</span>
+                  </td>
+                  <td class="board-table-title">{{ post.title }}</td>
+                  <td class="board-table-date">{{ post.date }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="pagination">
+              <button
+                v-for="page in totalNoticePages"
+                :key="page"
+                :class="{ active: noticeCurrentPage === page }"
+                @click="goToNoticePage(page)">
+                {{ page }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- 게시판3 -->
-    <!-- 자유게시판 영역 -->
-    <div class="board-section">
-      <div class="board-section-1">
-        <!-- 게시판 제목 -->
-        <div class="board-section-header">
-          <h2 class="board-subtitle-2">자유게시판</h2>
-        </div>
+      <!-- 게시판3 -->
+      <!-- 자유게시판 영역 -->
+      <div class="board-section">
+        <div class="board-section-1">
+          <!-- 게시판 제목 -->
+          <div class="board-section-header">
+            <h2 class="board-subtitle-2">자유게시판</h2>
+          </div>
 
-        <!-- 검색 및 필터 -->
-        <div class="board-filter">
-          <div class="board-filter-controls">
-            <!-- 상태 필터 -->
-            <div class="status-select">
-              <select v-model="freeStatusFilter">
-                <option value="all">전체</option>
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="date">등록일</option>
-              </select>
+          <!-- 검색 및 필터 -->
+          <div class="board-filter">
+            <div class="board-filter-controls">
+              <!-- 상태 필터 -->
+              <div class="status-select">
+                <select v-model="freeStatusFilter">
+                  <option value="all">전체</option>
+                  <option value="title">제목</option>
+                  <option value="content">내용</option>
+                  <option value="date">등록일</option>
+                </select>
+              </div>
+
+              <!-- 검색 입력 -->
+              <div class="search-input">
+                <input
+                  v-model="freeSearchQuery"
+                  @input="handleFreeInput"
+                  type="text"
+                  placeholder="검색어를 입력하세요." />
+                <svg
+                  @click="search"
+                  class="cursor-pointer"
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
+                    stroke="#757575"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M18 18L14 14"
+                    stroke="#757575"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <!-- 글쓰기 -->
+              <button class="write-box" v-on:click="clamemodal = true">글쓰기</button>
             </div>
-
-            <!-- 검색 입력 -->
-            <div class="search-input">
-              <input
-                v-model="freeSearchQuery"
-                @input="handleFreeInput"
-                type="text"
-                placeholder="검색어를 입력하세요." />
-              <svg
-                @click="search"
-                class="cursor-pointer"
-                width="19"
-                height="19"
-                viewBox="0 0 19 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M8.5 16C12.6421 16 16 12.6421 16 8.5C16 4.35786 12.6421 1 8.5 1C4.35786 1 1 4.35786 1 8.5C1 12.6421 4.35786 16 8.5 16Z"
-                  stroke="#757575"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path
-                  d="M18 18L14 14"
-                  stroke="#757575"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-
-            <!-- 글쓰기 -->
-            <button class="write-box" v-on:click="clamemodal = true">글쓰기</button>
           </div>
         </div>
-      </div>
 
-      <div class="board-section-2">
-        <div class="board-wrap">
-          <table class="board-table">
-            <thead>
-              <tr>
-                <th style="width: 10%">번호</th>
-                <th style="width: 40%">제목</th>
-                <th style="width: 7%">글쓴이</th>
-                <th style="width: 7%">등록일</th>
-                <th style="width: 7%">조회수</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(post, index) in paginatedFreePosts" :key="index">
-                <td class="board-table-number">
-                  <span v-if="post.notice" class="notice-label-2">공지</span>
-                  <span v-else>{{ post.number }}</span>
-                </td>
-                <td>{{ post.title }}</td>
-                <td style="text-align: center">{{ post.author }}</td>
-                <td style="text-align: center">{{ post.date }}</td>
-                <td style="text-align: center">{{ post.views }}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="board-section-2">
+          <div class="board-wrap">
+            <table class="board-table">
+              <thead>
+                <tr>
+                  <th style="width: 10%">번호</th>
+                  <th style="width: 40%">제목</th>
+                  <th style="width: 7%">글쓴이</th>
+                  <th style="width: 7%">등록일</th>
+                  <th style="width: 7%">조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(post, index) in paginatedFreePosts" :key="index">
+                  <td class="board-table-number">
+                    <span v-if="post.notice" class="notice-label-2">공지</span>
+                    <span v-else>{{ post.number }}</span>
+                  </td>
+                  <td>{{ post.title }}</td>
+                  <td style="text-align: center">{{ post.author }}</td>
+                  <td style="text-align: center">{{ post.date }}</td>
+                  <td style="text-align: center">{{ post.views }}</td>
+                </tr>
+              </tbody>
+            </table>
 
-          <div class="pagination">
-            <button
-              v-for="page in totalFreePages"
-              :key="page"
-              :class="{ active: freeCurrentPage === page }"
-              @click="goToFreePage(page)">
-              {{ page }}
-            </button>
+            <div class="pagination">
+              <button
+                v-for="page in totalFreePages"
+                :key="page"
+                :class="{ active: freeCurrentPage === page }"
+                @click="goToFreePage(page)">
+                {{ page }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -894,15 +897,6 @@ function prevPage() {
   }
 }
 .board-page {
-  padding: 1.5rem;
-  color: #2d3748;
-  background-color: #f9fafb;
-
-  .dark & {
-    background-color: #1a202c;
-    color: #e2e8f0;
-  }
-
   .board-header {
     display: flex;
     justify-content: space-between;
@@ -912,10 +906,6 @@ function prevPage() {
     .board-title {
       font-size: 1.5rem;
       font-weight: bold;
-
-      .dark & {
-        color: #ffffff;
-      }
     }
   }
   .board-table-number,
@@ -963,27 +953,15 @@ function prevPage() {
       justify-content: space-between;
     }
 
-    .dark & {
-      background-color: #2d3748;
-    }
-
     .board-section-header {
       padding: 1rem;
       display: flex;
       align-items: center;
 
-      .dark & {
-        border-color: #4a5568;
-      }
-
       .board-subtitle {
         font-size: 1.125rem;
         font-weight: 600;
         color: #00ab4c;
-
-        .dark & {
-          color: #ffffff;
-        }
       }
     }
 
@@ -1017,12 +995,6 @@ function prevPage() {
               border-color: #5a67d8;
               box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.4);
             }
-
-            .dark & {
-              background-color: #4a5568;
-              color: #ffffff;
-              border-color: #718096;
-            }
           }
           svg {
             position: absolute;
@@ -1051,12 +1023,6 @@ function prevPage() {
               outline: none;
               border-color: #5a67d8;
               box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.4);
-            }
-
-            .dark & {
-              background-color: #4a5568;
-              color: #ffffff;
-              border-color: #718096;
             }
           }
         }
@@ -1219,9 +1185,13 @@ function prevPage() {
     }
   }
 }
+.board-all-wrap {
+  padding: 0 20px 0 20px;
+  font-family: "Pretendard", sans-serif;
+}
 // 게시판 내용
 .board-wrap {
-  padding: 20px;
+  padding: 0 20px 0 20px;
   font-family: "Pretendard", sans-serif;
 }
 
@@ -1288,4 +1258,5 @@ function prevPage() {
   font-weight: 600;
   color: #424242;
 }
+
 </style>

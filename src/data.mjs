@@ -238,7 +238,7 @@ export const fullReservationList = reactive([
       gender: "female",
       health: false,
       location: {
-        서울특별시: ["강남구", "마포구"],
+        대구광역시: ["수성구", "북구"],
       },
       bank: "국민은행",
       account: "563352-09-422616",

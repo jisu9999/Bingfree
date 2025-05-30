@@ -1,18 +1,23 @@
 @use "./variables" as *;
 
+// ========== 기본 대시보드 스타일 ==========
 .dash {
   padding: 0 1%;
+
   .dash-name {
     font-size: 18px;
     font-weight: 500;
     color: #424242;
   }
+
   .dash-desc {
     font-size: 13px;
     font-weight: 400;
     color: #757575;
   }
 }
+
+// ========== 커스텀 체크박스 ==========
 .custom-checkbox {
   width: 16px;
   height: 16px;
@@ -23,50 +28,55 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+
+  &:checked {
+    background-color: #fff;
+
+    &::after {
+      content: "✔";
+      position: absolute;
+      font-size: 12px;
+      color: #333;
+      left: 2px;
+      top: -2px;
+    }
+  }
 }
 
-.custom-checkbox:checked {
-  background-color: #fff;
-}
-
-.custom-checkbox:checked::after {
-  content: "✔";
-  position: absolute;
-  font-size: 12px;
-  color: #333;
-  left: 2px;
-  top: -2px;
-}
+// ========== 모달 공지 영역 ==========
 .writemodal-notice {
   text-align: left;
   margin-left: 8%;
+
   p {
     color: #0d71ba;
     font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     margin-bottom: 1.5%;
   }
+
   li {
-    color: var(--bingprime-gray5-9e9e9e, #9e9e9e);
+    color: #9e9e9e;
     font-family: Pretendard;
     font-size: 13px;
-    font-style: normal;
     font-weight: 500;
-    line-height: 20px; /* 153.846% */
+    line-height: 20px;
   }
 }
+
+// ========== 모달 오버레이 ==========
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba($color: #000000, $alpha: 0.4);
+  background-color: rgba(#000000, 0.4);
   z-index: 99;
 }
+
+// ========== 글쓰기 모달 ==========
 .writemodal {
   position: absolute;
   top: 50%;
@@ -82,27 +92,24 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+
   .form {
     list-style: none;
+
     li {
       display: flex;
       align-items: center;
       padding: 1.5% 5%;
-      // border-top: 1px solid #e0e0e0;
 
       .label {
-        display: inline-block;
         width: 100px;
         font-weight: 500;
         margin-bottom: 4px;
         color: #424242;
-
         font-family: Pretendard;
         font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
       }
+
       .memo {
         display: flex;
         flex-direction: column;
@@ -111,6 +118,7 @@
       .value {
         font-weight: 600;
       }
+
       select,
       input[type="text"],
       textarea {
@@ -135,46 +143,37 @@
     gap: 8px;
   }
 }
+
+// ========== 게시판 메인 ==========
 .board-page {
-  padding: 1.5rem;
-  color: #2d3748;
-  background-color: #f9fafb;
-
-  .dark & {
-    background-color: #1a202c;
-    color: #e2e8f0;
-  }
-
   .board-header {
     display: flex;
     justify-content: space-between;
-
     align-items: center;
 
     .board-title {
       font-size: 1.5rem;
       font-weight: bold;
-
-      .dark & {
-        color: #ffffff;
-      }
     }
   }
+
   .board-table-number,
   .board-table-date {
     text-align: center;
   }
-  //  게시판 서브제목
+
+  // ========== 게시판 서브제목 ==========
   .board-subtxtwrap {
     display: flex;
     align-items: flex-end;
+
     .board-subtxt {
       color: #fe9209;
       font-family: Pretendard;
-      font-style: normal;
       font-weight: 600;
-      line-height: 23px; /* 191.667% */
+      line-height: 23px;
     }
+
     .board-subtxtbg {
       width: 200px;
       height: 15px;
@@ -182,35 +181,31 @@
       display: flex;
       align-items: flex-end;
     }
+
     .board-subtxt2 {
       color: #616161;
       font-family: Pretendard;
-      font-style: normal;
       font-weight: 600;
-      line-height: 23px; /* 191.667% */
+      line-height: 23px;
     }
   }
+
+  // ========== 게시판 리스트 영역 ==========
   .board-section {
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
     margin-top: 2%;
+
     .board-section-1 {
       width: 95%;
-      margin: auto;
-      overflow: hidden;
       margin: 1% 0 0 2%;
       display: flex;
       justify-content: space-between;
+
       @include mobile {
-        display: flex;
         flex-direction: column;
       }
-    }
-
-    .dark & {
-      background-color: #2d3748;
     }
 
     .board-section-header {
@@ -218,21 +213,14 @@
       display: flex;
       align-items: center;
 
-      .dark & {
-        border-color: #4a5568;
-      }
-
       .board-subtitle {
         font-size: 1.125rem;
         font-weight: 600;
         color: #00ab4c;
-
-        .dark & {
-          color: #ffffff;
-        }
       }
     }
 
+    // ========== 게시판 필터 영역 ==========
     .board-filter {
       padding: 1rem;
 
@@ -244,7 +232,7 @@
         @media (min-width: 768px) {
           flex-direction: row;
         }
-        // 검색어를 입력하세요.
+
         .search-input {
           position: relative;
           flex: 1;
@@ -256,20 +244,14 @@
             border: 1.5px solid #f5f5f5;
             background: #fff;
             color: #1a202c;
-            display: flex;
 
             &:focus {
               outline: none;
               border-color: #5a67d8;
               box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.4);
             }
-
-            .dark & {
-              background-color: #4a5568;
-              color: #ffffff;
-              border-color: #718096;
-            }
           }
+
           svg {
             position: absolute;
             right: 10px;
@@ -281,7 +263,7 @@
             pointer-events: none;
           }
         }
-        // 카테고리 선택
+
         .status-select {
           select {
             padding: 0.5rem 1rem;
@@ -289,7 +271,6 @@
             border: 1.5px solid #f5f5f5;
             width: 160px;
             height: 38px;
-            flex-shrink: 0;
             background: #fff;
             color: #1a202c;
 
@@ -298,24 +279,18 @@
               border-color: #5a67d8;
               box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.4);
             }
-
-            .dark & {
-              background-color: #4a5568;
-              color: #ffffff;
-              border-color: #718096;
-            }
           }
         }
+
         .write-box {
           width: 100px;
-          height: auto;
-          flex-shrink: 0;
           background: #f5f5f5;
         }
       }
     }
   }
-  //   글내용
+
+  // ========== 게시판 상세 내용 ==========
   .notice-board {
     max-width: 800px;
     margin: 0 auto;
@@ -465,29 +440,34 @@
     }
   }
 }
-// 게시판 내용
+
+// ========== 게시판 공통 스타일 ==========
+.board-all-wrap {
+  padding: 0 20px 0 20px;
+  font-family: "Pretendard", sans-serif;
+}
 .board-wrap {
   padding: 20px;
   font-family: "Pretendard", sans-serif;
 }
-
 .board-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+
+  thead {
+    background-color: #f7f7f7;
+  }
+
+  th,
+  td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
 }
 
-.board-table thead {
-  background-color: #f7f7f7;
-}
-
-.board-table th,
-.board-table td {
-  padding: 14px 20px;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-}
-
+// ========== 라벨 스타일 ==========
 .notice-label {
   display: inline-block;
   background-color: #4caf50;
@@ -496,6 +476,7 @@
   padding: 4px 10px;
   border-radius: 15px;
 }
+
 .notice-label-2 {
   display: inline-block;
   background-color: #424242;
@@ -505,30 +486,32 @@
   border-radius: 15px;
 }
 
+// ========== 공통 페이지네이션 ==========
 .pagination {
   display: flex;
   justify-content: center;
   gap: 8px;
+
+  button {
+    border: none;
+    background-color: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+
+    &.active {
+      background-color: #111;
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
 }
 
-.pagination button {
-  border: none;
-  background-color: #f5f5f5;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.pagination button.active {
-  background-color: #111;
-  color: #fff;
-}
-
-.pagination button:hover {
-  background-color: #ddd;
-}
-// 게시판 2
+// ========== 게시판 부제목 ==========
 .board-subtitle-2 {
   font-size: 1.125rem;
   font-weight: 600;
