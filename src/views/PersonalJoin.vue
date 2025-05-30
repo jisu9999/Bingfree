@@ -1,5 +1,5 @@
 <template>
-  <Navigation />
+  <Header />
   <div class="agree_box max-w-[860px] mx-auto py-20 px-6 bg-white">
     <!-- 제목 -->
     <h2 class="text-3xl font-bold text-center text-neutral-800 mb-16">정보입력</h2>
@@ -120,13 +120,13 @@
                 class="flex-1 h-12 px-3 rounded-lg border border-stone-300 focus:outline-none focus:ring focus:ring-[rgba(20,86,253,1)] placeholder:text-stone-300 placeholder:text-base placeholder:font-bold font-['Pretendard']" />
               <!-- 중복확인 버튼 -->
               <button
-                @click="checkDuplicate"
+                @click="checkDuplicate('username')"
                 :class="[
-                  'px-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300',
-                  isDuplicateChecked ? 'bg-blue-400 hover:bg-blue-400 cursor-default' : 'bg-blue-600 hover:bg-blue-700',
+                  'w-[130px] h-11 rounded-lg text-white text-base font-bold font-[Pretendard]',
+                  isDuplicateChecked.username ? 'bg-blue-400 cursor-default' : 'bg-blue-600 hover:bg-blue-700',
                 ]"
-                :disabled="isDuplicateChecked">
-                {{ isDuplicateChecked ? "확인 완료" : "중복확인" }}
+                :disabled="isDuplicateChecked.username">
+                {{ isDuplicateChecked.username ? "확인 완료" : "중복확인" }}
               </button>
             </div>
 
@@ -181,6 +181,7 @@
               <input
                 id="emailDomain"
                 name="emailDomain"
+                v-model="emailDomain"
                 type="text"
                 placeholder="직접 입력"
                 class="w-36 h-12 px-3 rounded-lg border border-stone-300 focus:outline-none focus:ring focus:ring-[rgba(20,86,253,1)] placeholder:text-stone-300 placeholder:text-base placeholder:font-bold font-['Pretendard']" />
@@ -198,13 +199,15 @@
 
               <!-- 중복확인 버튼 -->
               <button
-                @click="checkDuplicate"
+                @click="checkDuplicate('email')"
                 :class="[
                   'px-4 py-2 rounded-lg text-white font-semibold transition-colors duration-300',
-                  isDuplicateChecked ? 'bg-blue-400 hover:bg-blue-400 cursor-default' : 'bg-blue-600 hover:bg-blue-700',
+                  isDuplicateChecked.email
+                    ? 'bg-blue-400 hover:bg-blue-400 cursor-default'
+                    : 'bg-blue-600 hover:bg-blue-700',
                 ]"
-                :disabled="isDuplicateChecked">
-                {{ isDuplicateChecked ? "확인 완료" : "중복확인" }}
+                :disabled="isDuplicateChecked.email">
+                {{ isDuplicateChecked.email ? "확인 완료" : "중복확인" }}
               </button>
             </div>
 
@@ -1286,10 +1289,24 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import Header from "@/components/Header.vue";
+import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "../stores/auth";
-import Navigation from "@/components/Navigation.vue";
+// 이메일 입력하기
+const selectedDomain = ref("");
+const emailDomain = ref("");
+// 중복 확인 상태 (각 항목별 true/false 저장)
+const isDuplicateChecked = reactive({
+  username: false,
+  email: false,
+});
+
+// 중복 확인 함수
+function checkDuplicate(type) {
+  // 실제 중복 확인 API를 호출하거나 조건 처리 후 아래 코드 실행
+  isDuplicateChecked[type] = true;
+}
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -1311,6 +1328,14 @@ const formData = ref({
 });
 const handleEmailSelect = (event) => {
   formData.value.emailDomain = event.target.value;
+  selectedDomain.value = event.target.value;
+  // select에서 도메인이 선택되면 emailDomain input에 자동 입력
+  if (selectedDomain.value) {
+    emailDomain.value = selectedDomain.value;
+  } else {
+    // 직접입력 선택 시 공백으로
+    emailDomain.value = "";
+  }
 };
 const showPassword = ref(false);
 const togglePassword = () => {
@@ -1377,13 +1402,7 @@ const handleLogin = () => {
 // 버튼들 ui변경
 
 // 상태 변수
-const isDuplicateChecked = ref(false);
 const isVerifying = ref(false);
-
-// 클릭 핸들러
-const checkDuplicate = () => {
-  isDuplicateChecked.value = true;
-};
 
 const sendVerificationCode = () => {
   isVerifying.value = true;

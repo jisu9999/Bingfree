@@ -1,5 +1,5 @@
 <template>
-  <Navigation />
+  <Header />
   <div class="agree_box max-w-[860px] mx-auto py-20 px-6 bg-white">
     <!-- 제목 -->
     <h2 class="text-3xl font-bold text-center text-neutral-800 mb-16">정보입력</h2>
@@ -271,10 +271,10 @@
       <li>이용 중 해지 시, 사용일 기준으로 일할 정산 환불</li>
       <li>영수증 발급, 세금 계산서: 현장 또는 이메일로 발급 가능</li>
       <li>
-        결제 방식: 고객님이 선택한 <strong>청소 횟수(6회 / 8회 / 12회)</strong>에 따라 일괄 결제됩니다. 결제 후 선택한
-        횟수만큼 청소 서비스를 이용할 수 있으며, 중도 해지 시 잔여 횟수 기준으로 환불이 가능합니다. 사용 기간은 1년
-        기준이며, 미사용 회차는 다음 회차로 1회에 한해 이월할 수 있습니다. 이후에도 사용하지 않은 회차는 자동
-        소멸됩니다.
+        결제 방식: 고객님이 선택한
+        <strong>청소 횟수(6회 / 8회 / 12회)</strong>에 따라 일괄 결제됩니다. 결제 후 선택한 횟수만큼 청소 서비스를
+        이용할 수 있으며, 중도 해지 시 잔여 횟수 기준으로 환불이 가능합니다. 사용 기간은 1년 기준이며, 미사용 회차는
+        다음 회차로 1회에 한해 이월할 수 있습니다. 이후에도 사용하지 않은 회차는 자동 소멸됩니다.
       </li>
     </ul>
 
@@ -361,7 +361,7 @@
               빠른결제를 등록하시면 모든 디바이스에서 4자리 숫자만으로 간편하게 결제가 가능합니다.
             </div>
             <div class="text-base text-neutral-800 font-medium">
-              BingFree에서는 고객님의 카드정보 일체를 보관하지 않으며, 전자결제대행사 ‘그린레터(주)’를 통해 안전하게
+              BingFree에서는 고객님의 카드정보 일체를 보관하지 않으며, 전자결제대행사 '그린레터(주)'를 통해 안전하게
               관리됩니다.
             </div>
 
@@ -481,9 +481,9 @@
       <!-- 버튼 그룹 -->
       <div class="flex w-full justify-center mt-4">
         <router-link
-          to="/BingprimeReservation"
+          to="/Login"
           class="w-44 h-14 flex items-center justify-center bg-blue-600 text-white text-base font-semibold rounded-l-lg">
-          예약하러 가기
+          로그인하러 가기
         </router-link>
         <router-link
           to="/BingPrime"
@@ -496,41 +496,212 @@
 </template>
 
 <script setup>
-import Navigation from "@/components/Navigation.vue";
-import { ref, computed, watch } from "vue";
+import Header from "@/components/Header.vue";
+import { ref, computed, watch, onMounted } from "vue";
 
 const mainTab = ref("capacity");
 const subTabIndex = ref(0);
 
-watch(mainTab, () => {
-  subTabIndex.value = 0;
+// 랜덤 Top3 관리를 위한 ref 추가
+const randomTop3 = ref({
+  capacity: {},
+  hoshizaki: {},
+});
+
+// 컴포넌트가 마운트될 때 랜덤 Top3 초기화
+const initializeRandomTop3 = () => {
+  // 용량별 요금제 탭별 랜덤 Top3 초기화
+  tabs.forEach((_, tabIndex) => {
+    const plans = groupedPlans.value[tabIndex];
+    const randomIndices = new Set();
+    while (randomIndices.size < 3 && randomIndices.size < plans.length) {
+      randomIndices.add(Math.floor(Math.random() * plans.length));
+    }
+    randomTop3.value.capacity[tabIndex] = Array.from(randomIndices);
+  });
+
+  // 호시자키 요금제 탭별 랜덤 Top3 초기화
+  hositabs.forEach((_, tabIndex) => {
+    const plans = groupedhosiPlans.value[tabIndex];
+    const randomIndices = new Set();
+    while (randomIndices.size < 3 && randomIndices.size < plans.length) {
+      randomIndices.add(Math.floor(Math.random() * plans.length));
+    }
+    randomTop3.value.hoshizaki[tabIndex] = Array.from(randomIndices);
+  });
+};
+
+// 컴포넌트 마운트 시 랜덤 Top3 초기화
+onMounted(() => {
+  initializeRandomTop3();
+});
+
+// 탭이 변경될 때마다 랜덤 Top3 재초기화
+watch([mainTab, subTabIndex], () => {
+  initializeRandomTop3();
 });
 
 const tabs = ["스탠다드", "스탠다드+", "디럭스", "프리미엄"];
 const hositabs = ["호시자키", "호시자키+"];
 
 // 데이터 정의
-const planData = [
-  { title: "스탠다드", times: 6, discount: "10%", price: "₩534,600", perSession: "₩89,100", numericPrice: 534600 },
-  { title: "스탠다드", times: 8, discount: "15%", price: "₩673,200", perSession: "₩84,150", numericPrice: 673200 },
-  { title: "스탠다드", times: 12, discount: "20%", price: "₩950,400", perSession: "₩79,200", numericPrice: 950400 },
-  { title: "스탠다드+", times: 6, discount: "10%", price: "₩648,000", perSession: "₩108,000", numericPrice: 648000 },
-  { title: "스탠다드+", times: 8, discount: "15%", price: "₩816,000", perSession: "₩102,000", numericPrice: 816000 },
-  { title: "스탠다드+", times: 12, discount: "20%", price: "₩1,152,000", perSession: "₩96,000", numericPrice: 1152000 },
-  { title: "디럭스", times: 6, discount: "10%", price: "₩810,000", perSession: "₩135,000", numericPrice: 810000 },
-  { title: "디럭스", times: 8, discount: "15%", price: "₩1,020,000", perSession: "₩127,500", numericPrice: 1020000 },
-  { title: "디럭스", times: 12, discount: "20%", price: "₩1,440,000", perSession: "₩120,000", numericPrice: 1440000 },
-  { title: "프리미엄", times: 6, discount: "10%", price: "₩918,000", perSession: "₩153,000", numericPrice: 918000 },
-  { title: "프리미엄", times: 8, discount: "15%", price: "₩1,156,000", perSession: "₩144,500", numericPrice: 1156000 },
-  { title: "프리미엄", times: 12, discount: "20%", price: "₩1,632,000", perSession: "₩136,000", numericPrice: 1632000 },
-];
+const planData = ref([
+  {
+    title: "스탠다드",
+    times: 6,
+    discount: "10%",
+    price: "₩534,600",
+    perSession: "₩89,100",
+    numericPrice: 534600,
+    isTop3: true,
+  },
+  {
+    title: "스탠다드",
+    times: 8,
+    discount: "15%",
+    price: "₩673,200",
+    perSession: "₩84,150",
+    numericPrice: 673200,
+    isTop3: false,
+  },
+  {
+    title: "스탠다드",
+    times: 12,
+    discount: "20%",
+    price: "₩950,400",
+    perSession: "₩79,200",
+    numericPrice: 950400,
+    isTop3: true,
+  },
+  {
+    title: "스탠다드+",
+    times: 6,
+    discount: "10%",
+    price: "₩648,000",
+    perSession: "₩108,000",
+    numericPrice: 648000,
+    isTop3: false,
+  },
+  {
+    title: "스탠다드+",
+    times: 8,
+    discount: "15%",
+    price: "₩816,000",
+    perSession: "₩102,000",
+    numericPrice: 816000,
+    isTop3: true,
+  },
+  {
+    title: "스탠다드+",
+    times: 12,
+    discount: "20%",
+    price: "₩1,152,000",
+    perSession: "₩96,000",
+    numericPrice: 1152000,
+    isTop3: false,
+  },
+  {
+    title: "디럭스",
+    times: 6,
+    discount: "10%",
+    price: "₩810,000",
+    perSession: "₩135,000",
+    numericPrice: 810000,
+    isTop3: true,
+  },
+  {
+    title: "디럭스",
+    times: 8,
+    discount: "15%",
+    price: "₩1,020,000",
+    perSession: "₩127,500",
+    numericPrice: 1020000,
+    isTop3: false,
+  },
+  {
+    title: "디럭스",
+    times: 12,
+    discount: "20%",
+    price: "₩1,440,000",
+    perSession: "₩120,000",
+    numericPrice: 1440000,
+    isTop3: false,
+  },
+  {
+    title: "프리미엄",
+    times: 6,
+    discount: "10%",
+    price: "₩918,000",
+    perSession: "₩153,000",
+    numericPrice: 918000,
+    isTop3: false,
+  },
+  {
+    title: "프리미엄",
+    times: 8,
+    discount: "15%",
+    price: "₩1,156,000",
+    perSession: "₩144,500",
+    numericPrice: 1156000,
+    isTop3: true,
+  },
+  {
+    title: "프리미엄",
+    times: 12,
+    discount: "20%",
+    price: "₩1,632,000",
+    perSession: "₩136,000",
+    numericPrice: 1632000,
+    isTop3: false,
+  },
+]);
 
-const hosiData = [
-  { title: "호시자키", times: 6, discount: "10%", price: "₩918,000", perSession: "₩153,000", numericPrice: 918000 },
-  { title: "호시자키", times: 8, discount: "15%", price: "₩1,156,000", perSession: "₩144,500", numericPrice: 1156000 },
-  { title: "호시자키", times: 12, discount: "20%", price: "₩1,632,000", perSession: "₩136,000", numericPrice: 1632000 },
-  { title: "호시자키+", times: 6, discount: "10%", price: "₩1,026,000", perSession: "₩171,000", numericPrice: 1026000 },
-  { title: "호시자키+", times: 8, discount: "15%", price: "₩1,296,000", perSession: "₩162,000", numericPrice: 1296000 },
+const hosiData = ref([
+  {
+    title: "호시자키",
+    times: 6,
+    discount: "10%",
+    price: "₩918,000",
+    perSession: "₩153,000",
+    numericPrice: 918000,
+    isTop3: true,
+  },
+  {
+    title: "호시자키",
+    times: 8,
+    discount: "15%",
+    price: "₩1,156,000",
+    perSession: "₩144,500",
+    numericPrice: 1156000,
+    isTop3: false,
+  },
+  {
+    title: "호시자키",
+    times: 12,
+    discount: "20%",
+    price: "₩1,632,000",
+    perSession: "₩136,000",
+    numericPrice: 1632000,
+    isTop3: true,
+  },
+  {
+    title: "호시자키+",
+    times: 6,
+    discount: "10%",
+    price: "₩1,026,000",
+    perSession: "₩171,000",
+    numericPrice: 1026000,
+    isTop3: false,
+  },
+  {
+    title: "호시자키+",
+    times: 8,
+    discount: "15%",
+    price: "₩1,296,000",
+    perSession: "₩162,000",
+    numericPrice: 1296000,
+    isTop3: true,
+  },
   {
     title: "호시자키+",
     times: 12,
@@ -538,21 +709,19 @@ const hosiData = [
     price: "₩1,872,000",
     perSession: "₩156,000",
     numericPrice: 1872000,
+    isTop3: false,
   },
-];
+]);
 
 // 요금제 그룹화
-const groupedPlans = computed(() => tabs.map((tab) => planData.filter((plan) => plan.title === tab)));
+const groupedPlans = computed(() => tabs.map((tab) => planData.value.filter((plan) => plan.title === tab)));
+const groupedhosiPlans = computed(() => hositabs.map((tab) => hosiData.value.filter((plan) => plan.title === tab)));
 
-const groupedhosiPlans = computed(() => hositabs.map((tab) => hosiData.filter((plan) => plan.title === tab)));
-
-// Top3 체크
+// Top3 체크 함수 수정
 function isTop3(type, tabIndex, planIndex) {
-  const list = type === "capacity" ? groupedPlans.value : groupedhosiPlans.value;
-  const sorted = [...list[tabIndex]].sort((a, b) => a.numericPrice - b.numericPrice);
-  return sorted
-    .slice(0, 3)
-    .some((p) => p.title === list[tabIndex][planIndex].title && p.times === list[tabIndex][planIndex].times);
+  const list = type === "capacity" ? planData.value : hosiData.value;
+  const plans = list.filter((plan) => plan.title === (type === "capacity" ? tabs[tabIndex] : hositabs[tabIndex]));
+  return plans[planIndex]?.isTop3 || false;
 }
 
 // 결제 모달창
