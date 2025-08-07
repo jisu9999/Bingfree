@@ -1,3 +1,4 @@
+<!-- 지수 대시보드 홈 -->
 <script setup>
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "../../stores/auth";
@@ -95,7 +96,6 @@ function updateTime() {
   });
 }
 </script>
-<!-- 지수 대시보드 홈 -->
 
 <template>
   <!-- 페이지 헤더 -->

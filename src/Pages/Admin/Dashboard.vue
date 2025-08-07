@@ -1,3 +1,4 @@
+<!-- 지수 대시보드 홈 -->
 <script setup>
 import { ref, computed, watch, onMounted } from "vue";
 import { fullReservationList } from "@/data.mjs";
