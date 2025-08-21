@@ -722,13 +722,9 @@ function toggleAlert(index) {
       </div>
       <div class="update">
         <!-- 왼쪽 박스 -->
-        <!-- <Line :data="chartData" :options="chartOptions" /> -->
         <MonthlyChart />
-        <!-- </div> -->
         <!-- 오른쪽 박스 -->
-        <!-- <Bar :data="chartData" :options="chartOptions" /> -->
         <MonthlyBarChart />
-        <!-- </div> -->
       </div>
       <div class="alert">
         <h2 class="alert-h2">알림</h2>
